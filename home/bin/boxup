@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pushd $HOME/box >/dev/null
+vagrant up --provision
+popd >/dev/null
+
+net use a: /delete
+net use a: '\\127.0.0.1\kiesel' /persistent:no
