@@ -1,5 +1,4 @@
 [core]
-	symlinks = false
 	ignoreCygwinFSTricks = false
 	filemode = false
 	fileMode = false
