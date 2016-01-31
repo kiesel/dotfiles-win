@@ -7,6 +7,11 @@ if [ -z "$PS1" ]; then
   return;
 fi
 
+export \
+  WORMHOLE_REMOTE="/home/kiesel" \
+  WORMHOLE_LOCAL="A:" \
+  WORMHOLE_EDITOR="C:/Program Files/Sublime Text 3/sublime_text.exe"
+
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 source $HOME/.homesick/repos/zgen/zgen.zsh
 
@@ -16,17 +21,16 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh themes/ys
 
+  zgen load kiesel/wormhole
+
   zgen save
 fi
 
 
 # User configuration
 export PATH="$PATH:$HOME/bin"
-
 export BASE="/home/kiesel"
 
 alias hs=homeshick
-#ps faux | grep -q '/usr/bin/nc'
-#if [ $? -ne 0 ]; then
-#  nohup ~/bin/net-invoke.sh >~/net-invoke.log &
-#fi
+
+eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
