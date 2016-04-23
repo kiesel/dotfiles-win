@@ -21,8 +21,6 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh themes/ys
 
-  zgen load kiesel/wormhole
-
   zgen save
 fi
 
@@ -32,5 +30,8 @@ export PATH="$PATH:$HOME/bin"
 export BASE="/home/kiesel"
 
 alias hs=homeshick
+alias reload="source ~/.zshrc"
+alias zshrc="vim ~/.zshrc && reload"
 
 eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
+(nohup $HOME/bin/wormhole.exe -quiet -configfile=C:/tools/cygwin/home/Alex/.homesick/repos/dotfiles-win/home/.wormhole.yml 2>&1 >/dev/null &)
